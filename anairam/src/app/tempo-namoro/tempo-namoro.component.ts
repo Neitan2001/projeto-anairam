@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-tempo-namoro',
@@ -12,8 +13,13 @@ export class TempoNamoroComponent implements OnInit {
   inicioNamoro: Date  = new Date("Feb 12, 2021 00:00:00");
   dataAtual: Date = new Date();
 
-  segundos: number = Math.round((this.dataAtual.getTime() - this.inicioNamoro.getTime())/1000);
-  minutos: number = Math.round(this.segundos/60);
+  segundosTotal: number = this.dataAtual.getTime() - this.inicioNamoro.getTime();
+  segundosAtual: number = this.dataAtual.getSeconds();
+  minutosAtual: number = this.dataAtual.getMinutes();
+  horasAtual: number = this.dataAtual.getHours();
+  diasTotal: number = Math.ceil(this.segundosTotal/(86400 * 1000));
+  dataMoment = moment();
+  anosTotal: number = this.dataMoment.diff(moment('2021-02-12'), 'years');
 
   ngOnInit(): void {
     setInterval(() => {
@@ -22,7 +28,25 @@ export class TempoNamoroComponent implements OnInit {
   }
 
   private aumentaTempo() {
-    this.segundos ++;
+    this.segundosTotal ++;
+    this.dataMoment = moment();
+    this.anosTotal = this.dataMoment.diff(moment('2021-02-12'), 'years');
+    if (this.segundosAtual >= 59) {
+      this.segundosAtual = 0;
+      if (this.minutosAtual >= 59) {
+        this.minutosAtual = 0;
+        if (this.horasAtual >= 23) {
+          this.horasAtual = 0;
+          this.diasTotal ++;
+        } else {
+          this.horasAtual ++;
+        }
+      } else {
+        this.minutosAtual ++;
+      }
+    } else {
+      this.segundosAtual ++;
+    }
   }
 
 }
