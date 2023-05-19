@@ -10,6 +10,7 @@ export class TempoNamoroComponent implements OnInit {
 
   constructor() { }
 
+  anoInicio: number = 2021;
   inicioNamoro: Date  = new Date("Feb 12, 2021 00:00:00");
   dataAtual: Date = new Date();
 
@@ -17,9 +18,9 @@ export class TempoNamoroComponent implements OnInit {
   segundosAtual: number = this.dataAtual.getSeconds();
   minutosAtual: number = this.dataAtual.getMinutes();
   horasAtual: number = this.dataAtual.getHours();
-  diasTotal: number = Math.ceil(this.segundosTotal/(86400 * 1000));
   dataMoment = moment();
   anosTotal: number = this.dataMoment.diff(moment('2021-02-12'), 'years');
+  diasTotal: number = this.dataMoment.diff(moment(`${this.anoInicio + this.anosTotal}-02-12`), 'days');
 
   ngOnInit(): void {
     setInterval(() => {

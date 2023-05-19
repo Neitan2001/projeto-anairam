@@ -1,6 +1,14 @@
-<h2>Estamos namorando há: </h2>
-<p>{{segundosAtual | number }} segundos</p>
-<p>{{minutosAtual}} minutos</p>
-<p>{{horasAtual}} horas</p>
-<p>{{diasTotal}} dias</p>
-<p>{{anosTotal}} Anos</p>
+<div class="contador-conteudo">
+    <p class="contador-title">Estamos namorando há</p>
+    <div class="contador-datas">
+        <div class="anos-dias">
+            <app-contador-card [numero]="anosTotal" rotulo="Anos"></app-contador-card>
+            <app-contador-card [numero]="diasTotal" rotulo="Dias"></app-contador-card>
+        </div>
+        <div class="horario">
+            <app-contador-card [numero]="horasAtual" rotulo="Horas"></app-contador-card>
+            <app-contador-card [numero]="minutosAtual" rotulo="Minutos"></app-contador-card>
+            <app-contador-card [numero]="segundosAtual" rotulo="Segundos"></app-contador-card>
+        </div>
+    </div>
+</div>

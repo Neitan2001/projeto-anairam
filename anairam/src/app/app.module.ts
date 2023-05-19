@@ -7,13 +7,15 @@ import localePt from '@angular/common/locales/pt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TempoNamoroComponent } from './tempo-namoro/tempo-namoro.component';
+import { ContadorCardComponent } from './contador-card/contador-card.component';
 
 registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
     AppComponent,
-    TempoNamoroComponent
+    TempoNamoroComponent,
+    ContadorCardComponent
   ],
   imports: [
     BrowserModule,
