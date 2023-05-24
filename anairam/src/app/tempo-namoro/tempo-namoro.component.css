@@ -12,6 +12,7 @@
 
 .contador-datas {
     display: flex;
+    width: 100%;
 }
 
 .contador-title {
@@ -29,4 +30,27 @@
 .horario {
     display: flex;
     gap: 15px;
+}
+
+@media (max-width: 1300px)
+{
+    .contador-datas {
+        flex-direction: column;
+    }
+
+    .contador-title {
+        font-size: 30px;
+    }
+
+    .anos-dias {
+        gap: 7px;
+        margin-right: 0px;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    .horario {
+        gap: 4px;
+        justify-content: center;
+    }
 }
