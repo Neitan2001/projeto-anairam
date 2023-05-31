@@ -1,0 +1,60 @@
+.contagem-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../../assets/images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contagem-datas {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.contagem-title {
+    font-weight: bold;
+    font-size: 48px;
+    color: #B0E1F1;
+    margin-bottom: 32px;
+}
+
+.contagem-dias {
+    display: flex;
+    gap: 70px;
+    margin-right: 70px;
+}
+
+.contagem-horario {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 1300px)
+{
+    .contagem-datas {
+        flex-direction: column;
+    }
+
+    .contagem-title {
+        text-align: center;
+        width: 320px;
+        font-size: 30px;
+    }
+
+    .contagem-dias {
+        gap: 7px;
+        margin-right: 0px;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    .contagem-horario {
+        gap: 4px;
+        justify-content: center;
+    }
+}

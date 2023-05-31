@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TempoNamoroComponent } from './tempo-namoro/tempo-namoro.component';
 import { ContadorCardComponent } from './contador-card/contador-card.component';
+import { ContagemRegressivaComponent } from './contagem-regressiva/contagem-regressiva.component';
 
 registerLocaleData(localePt);
 
@@ -15,7 +16,8 @@ registerLocaleData(localePt);
   declarations: [
     AppComponent,
     TempoNamoroComponent,
-    ContadorCardComponent
+    ContadorCardComponent,
+    ContagemRegressivaComponent
   ],
   imports: [
     BrowserModule,
