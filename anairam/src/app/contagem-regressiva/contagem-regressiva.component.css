@@ -34,6 +34,16 @@
     gap: 15px;
 }
 
+.link-tempo {
+    margin-top: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: #B0E1F1;
+    padding: 8px;
+    border-radius: 20px;
+}
+
 @media (max-width: 1300px)
 {
     .contagem-datas {
