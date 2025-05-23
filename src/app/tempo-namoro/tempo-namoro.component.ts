@@ -1,53 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as moment from 'moment';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tempo-namoro',
   templateUrl: './tempo-namoro.component.html',
   styleUrls: ['./tempo-namoro.component.css']
 })
-export class TempoNamoroComponent implements OnInit {
+export class TempoNamoroComponent implements OnInit, OnDestroy {
+  private inicio = moment('2021-02-12T00:00:00');
+  private timerSub!: Subscription;
+  private simulatedNow!: moment.Moment;
 
-  constructor() { }
-
-  anoInicio: number = 2021;
-  inicioNamoro: Date  = new Date("Feb 12, 2021 00:00:00");
-  dataAtual: Date = new Date();
-
-  segundosTotal: number = this.dataAtual.getTime() - this.inicioNamoro.getTime();
-  segundosAtual: number = this.dataAtual.getSeconds();
-  minutosAtual: number = this.dataAtual.getMinutes();
-  horasAtual: number = this.dataAtual.getHours();
-  dataMoment = moment();
-  anosTotal: number = this.dataMoment.diff(moment('2021-02-12'), 'years');
-  diasTotal: number = this.dataMoment.diff(moment(`${this.anoInicio + this.anosTotal}-02-12`), 'days');
+  anosTotal = 0;
+  diasTotal = 0;
+  horas = 0;
+  minutos = 0;
+  segundos = 0;
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.aumentaTempo();
-    }, 1000);
+    this.simulatedNow = moment();
+    this.timerSub = interval(1000).subscribe(() => this.atualizaContador());
+    this.atualizaContador();
   }
 
-  private aumentaTempo() {
-    this.segundosTotal ++;
-    this.dataMoment = moment();
-    this.anosTotal = this.dataMoment.diff(moment('2021-02-12'), 'years');
-    if (this.segundosAtual >= 59) {
-      this.segundosAtual = 0;
-      if (this.minutosAtual >= 59) {
-        this.minutosAtual = 0;
-        if (this.horasAtual >= 23) {
-          this.horasAtual = 0;
-          this.diasTotal ++;
-        } else {
-          this.horasAtual ++;
-        }
-      } else {
-        this.minutosAtual ++;
-      }
-    } else {
-      this.segundosAtual ++;
-    }
+  ngOnDestroy(): void {
+    this.timerSub.unsubscribe();
   }
 
+  private atualizaContador(): void {
+    this.simulatedNow.add(1, 'seconds');
+    const now = this.simulatedNow;
+
+    const anos    = now.diff(this.inicio, 'years');
+    const refAnos = this.inicio.clone().add(anos, 'years');
+
+    const dias    = now.diff(refAnos, 'days');
+    const refDias = refAnos.clone().add(dias, 'days');
+
+    const horas   = now.diff(refDias, 'hours');
+    const refHoras= refDias.clone().add(horas, 'hours');
+
+    const min    = now.diff(refHoras, 'minutes');
+    const refMin = refHoras.clone().add(min, 'minutes');
+
+    const seg    = now.diff(refMin, 'seconds');
+
+    this.anosTotal = anos;
+    this.diasTotal = dias;
+    this.horas     = horas;
+    this.minutos   = min;
+    this.segundos  = seg;
+  }
 }
