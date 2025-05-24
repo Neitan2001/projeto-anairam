@@ -1,0 +1,23 @@
+<div class="timeline-container">
+    <h2 class="timeline-title">NOSSA LINHA DO TEMPO</h2>
+
+    <div class="timeline-line-wrapper">
+        <div class="markers">
+            <div class="timeline-line"></div>
+
+            <ng-container *ngFor="let ev of eventos; let i = index">
+                <div class="marker-item" [class.top]="i % 2 === 0" [class.bottom]="i % 2 !== 0">
+
+                    <app-bola-linha-tempo [date]="ev.date" [label]="ev.label"
+                        [position]="i % 2 === 0 ? 'top' : 'bottom'">
+                    </app-bola-linha-tempo>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="timeline-actions">
+        <button routerLink="/tempo-namoro">Tempo de namoro</button>
+        <button routerLink="/contagem-regressiva">Contagem Regressiva</button>
+    </div>
+</div>

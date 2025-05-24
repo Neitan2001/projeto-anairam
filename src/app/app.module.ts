@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { TempoNamoroComponent } from './tempo-namoro/tempo-namoro.component';
 import { ContadorCardComponent } from './contador-card/contador-card.component';
 import { ContagemRegressivaComponent } from './contagem-regressiva/contagem-regressiva.component';
+import { LinhaTemporalComponent } from './linha-temporal/linha-temporal.component';
+import { BolaLinhaTempoComponent } from './linha-temporal/bola-linha-tempo/bola-linha-tempo.component';
 
 registerLocaleData(localePt);
 
@@ -17,7 +19,9 @@ registerLocaleData(localePt);
     AppComponent,
     TempoNamoroComponent,
     ContadorCardComponent,
-    ContagemRegressivaComponent
+    ContagemRegressivaComponent,
+    LinhaTemporalComponent,
+    BolaLinhaTempoComponent
   ],
   imports: [
     BrowserModule,
