@@ -11,6 +11,7 @@ import { ContadorCardComponent } from './contador-card/contador-card.component';
 import { ContagemRegressivaComponent } from './contagem-regressiva/contagem-regressiva.component';
 import { LinhaTemporalComponent } from './linha-temporal/linha-temporal.component';
 import { BolaLinhaTempoComponent } from './linha-temporal/bola-linha-tempo/bola-linha-tempo.component';
+import { EventoDetalheComponent } from './linha-temporal/evento-detalhe/evento-detalhe.component';
 
 registerLocaleData(localePt);
 
@@ -21,7 +22,8 @@ registerLocaleData(localePt);
     ContadorCardComponent,
     ContagemRegressivaComponent,
     LinhaTemporalComponent,
-    BolaLinhaTempoComponent
+    BolaLinhaTempoComponent,
+    EventoDetalheComponent
   ],
   imports: [
     BrowserModule,

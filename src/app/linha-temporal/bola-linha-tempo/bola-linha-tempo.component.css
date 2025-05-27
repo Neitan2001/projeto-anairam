@@ -6,22 +6,26 @@
   color: #fff;
 }
 
-/* o marcador fixo 30x30 na cor solicitada */
 .marker {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: #016C98;
+  transition: width 0.2s ease, height 0.2s ease;
+  border: 1px solid #B0E1F1;
 }
 
-/* o grupo de data e label */
+.marker.highlight {
+  width: 40px;
+  height: 40px;
+}
+
 .text-group {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* data e label em si */
 .marker-date {
   font-size: 12px;
   white-space: nowrap;
@@ -32,10 +36,9 @@
   text-align: center;
 }
 
-/* linha tracejada vertical de 30px */
 .dash-line {
   width: 1px;
   height: 30px;
-  border-left: 2px dashed #000;
+  border-left: 1px dashed #000;
   margin: 4px 0;
 }

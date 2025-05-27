@@ -1,5 +1,4 @@
 <div class="marker-wrapper">
-  <!-- texto acima -->
   <ng-container *ngIf="position === 'top'">
     <div class="text-group">
       <div class="marker-date">{{ date }}</div>
@@ -8,10 +7,8 @@
     <div class="dash-line"></div>
   </ng-container>
 
-  <!-- a bola em si -->
-  <div class="marker"></div>
+  <div class="marker" [class.highlight]="highlight"></div>
 
-  <!-- texto abaixo -->
   <ng-container *ngIf="position === 'bottom'">
     <div class="dash-line"></div>
     <div class="text-group">

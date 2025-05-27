@@ -12,4 +12,6 @@ export class BolaLinhaTempoComponent {
   @Input() label!: string;
   /** posição do texto em relação à bola: 'top' ou 'bottom' */
   @Input() position: 'top' | 'bottom' = 'bottom';
+  /** quando true, a bolinha fica maior */
+  @Input() highlight = false;
 }
