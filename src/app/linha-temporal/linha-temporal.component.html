@@ -16,7 +16,7 @@
             </ng-container>
         </div>
     </div>
-    <app-evento-detalhe *ngIf="selectedEvent" [event]="selectedEvent" (close)="selectedEvent = null">
+    <app-evento-detalhe class="timeline-evento-detail" *ngIf="selectedEvent" [event]="selectedEvent" (close)="selectedEvent = null">
     </app-evento-detalhe>
 
     <div class="timeline-actions">
