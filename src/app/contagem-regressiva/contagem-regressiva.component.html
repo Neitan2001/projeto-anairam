@@ -1,14 +1,19 @@
 <div class="contagem-conteudo">
-    <p class="contagem-title">COMPLETAREMOS {{anosTotal + 1}} ANOS JUNTOS EM</p>
-    <div class="contagem-datas">
-        <div class="contagem-dias">
-            <app-contador-card [numero]="diasFaltando" rotulo="Dias" ></app-contador-card>
-        </div>
-        <div class="contagem-horario">
-            <app-contador-card [numero]="horasFaltando" rotulo="Horas"></app-contador-card>
-            <app-contador-card [numero]="minutosFaltando" rotulo="Minutos"></app-contador-card>
-            <app-contador-card [numero]="segundosFaltando" rotulo="Segundos"></app-contador-card>
+    <div class="contagem-body">
+        <p class="contagem-title">COMPLETAREMOS {{anosTotal + 1}} ANOS JUNTOS EM</p>
+        <div class="contagem-datas">
+            <div class="contagem-dias">
+                <app-contador-card [numero]="diasFaltando" rotulo="Dias" ></app-contador-card>
+            </div>
+            <div class="contagem-horario">
+                <app-contador-card [numero]="horasFaltando" rotulo="Horas"></app-contador-card>
+                <app-contador-card [numero]="minutosFaltando" rotulo="Minutos"></app-contador-card>
+                <app-contador-card [numero]="segundosFaltando" rotulo="Segundos"></app-contador-card>
+            </div>
         </div>
     </div>
-    <a class="link-tempo" routerLink="/tempo-namoro">Ir para tempo de namoro</a>
+    <div class="contagem-actions">
+        <button routerLink="/tempo-namoro">Tempo de namoro</button>
+        <button routerLink="/linha-temporal">Linha do Tempo</button>
+    </div>
 </div>
