@@ -7,7 +7,7 @@
 
             <ng-container *ngFor="let ev of eventos; let i = index">
                 <div class="marker-item" [class.top]="i % 2 === 0" [class.bottom]="i % 2 !== 0"
-                    (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = null" (click)="selectedEvent = ev">
+                    (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = null" (click)="selectEvent(ev, i)" #marker [id]="'marker-' + i">
 
                     <app-bola-linha-tempo [date]="ev.date" [label]="ev.label"
                         [position]="i % 2 === 0 ? 'top' : 'bottom'" [highlight]="hoveredIndex === i">
@@ -16,7 +16,7 @@
             </ng-container>
         </div>
     </div>
-    <app-evento-detalhe class="timeline-evento-detail" *ngIf="selectedEvent" [event]="selectedEvent" (close)="selectedEvent = null">
+    <app-evento-detalhe class="timeline-evento-detail" *ngIf="selectedEvent" [event]="selectedEvent" (close)="onCloseDetail()">
     </app-evento-detalhe>
 
     <div class="timeline-actions">
