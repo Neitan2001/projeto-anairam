@@ -11,6 +11,7 @@ export class LinhaTemporalComponent implements OnInit {
   selectedEvent: Evento | null = null;
   hoveredIndex: number | null = null;
   lastSelectedIndex: number | null = null;
+  loading: boolean = true;
 
   constructor(private eventService: EventService) { }
 
@@ -33,6 +34,11 @@ export class LinhaTemporalComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventService.getEvents()
-      .subscribe(events => this.eventos = events);
+      .subscribe(events => {
+        this.eventos = events;
+        this.loading = false;
+      }, error => {
+        this.loading = false;
+      });
   }
 }
