@@ -16,7 +16,13 @@ export class EventoDetalheComponent {
   @Input() event!: EventoDetalhe;
   @Output() close = new EventEmitter<void>();
 
+  imageLoading = true;
+
   onClose() {
     this.close.emit();
+  }
+
+  onImageLoad() {
+    this.imageLoading = false;
   }
 }

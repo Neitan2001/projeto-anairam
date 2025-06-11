@@ -11,7 +11,9 @@
             <p>{{ event.description }}</p>
         </div>
         <div class="detail-image">
-            <img [src]="event.imageUrl" alt="{{ event.label }}" />
+            <div *ngIf="imageLoading" class="image-loading-spinner"></div>
+            <img [src]="event.imageUrl" alt="{{ event.label }}" (load)="onImageLoad()"
+                [style.display]="imageLoading ? 'none' : 'block'" />
         </div>
     </div>
 </div>
