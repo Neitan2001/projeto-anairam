@@ -2,12 +2,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 100vh;
     width: 100vw;
     background-image: url(../../assets/images/background.png);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.contador-body {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .contador-datas {
@@ -45,7 +53,22 @@
     border-radius: 20px;
 }
 
-@media (max-width: 1300px)
+.tempo-namoro-actions {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.tempo-namoro-actions button {
+    background-color: #B0E1F1;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 600px)
 {
     .contador-datas {
         flex-direction: column;
@@ -65,5 +88,9 @@
     .horario {
         gap: 4px;
         justify-content: center;
+    }
+
+    .tempo-namoro-actions {
+        margin-bottom: 100px;
     }
 }

@@ -1,0 +1,34 @@
+<div class="timeline-container">
+    <h2 class="timeline-title">NOSSA LINHA DO TEMPO</h2>
+
+    <div *ngIf="loading" class="timeline-loading">
+        <div class="timeline-spinner"></div>
+    </div>
+
+    <ng-container *ngIf="!loading">
+        <div class="timeline-line-wrapper" *ngIf="!selectedEvent">
+            <div class="markers">
+                <div class="timeline-line"></div>
+                <ng-container *ngFor="let ev of eventos; let i = index">
+                    <div class="marker-item" [class.top]="i % 2 === 0" [class.bottom]="i % 2 !== 0"
+                        (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = null" (click)="selectEvent(ev, i)"
+                        #marker [id]="'marker-' + i">
+
+                        <app-bola-linha-tempo [date]="ev.date" [label]="ev.label"
+                            [position]="i % 2 === 0 ? 'top' : 'bottom'" [highlight]="hoveredIndex === i">
+                        </app-bola-linha-tempo>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <app-evento-detalhe class="timeline-evento-detail" *ngIf="selectedEvent" [event]="selectedEvent"
+            (close)="onCloseDetail()">
+        </app-evento-detalhe>
+
+    </ng-container>
+    <div *ngIf="!selectedEvent" class="timeline-actions">
+        <button routerLink="/tempo-namoro">Tempo de namoro</button>
+        <button routerLink="/contagem-regressiva">Contagem Regressiva</button>
+    </div>
+
+</div>

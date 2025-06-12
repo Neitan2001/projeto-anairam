@@ -1,15 +1,21 @@
 <div class="contador-conteudo">
-    <p class="contador-title">ESTAMOS NAMORANDO HÁ</p>
-    <div class="contador-datas">
-        <div class="anos-dias">
-            <app-contador-card [numero]="anosTotal" rotulo="Anos"></app-contador-card>
-            <app-contador-card [numero]="diasTotal" rotulo="Dias"></app-contador-card>
-        </div>
-        <div class="horario">
-            <app-contador-card [numero]="horas" rotulo="Horas"></app-contador-card>
-            <app-contador-card [numero]="minutos" rotulo="Minutos"></app-contador-card>
-            <app-contador-card [numero]="segundos" rotulo="Segundos"></app-contador-card>
+    <div class="contador-body">
+        <p class="contador-title">ESTAMOS NAMORANDO HÁ</p>
+        <div class="contador-datas">
+            <div class="anos-dias">
+                <app-contador-card [numero]="anosTotal" rotulo="Anos"></app-contador-card>
+                <app-contador-card [numero]="diasTotal" rotulo="Dias"></app-contador-card>
+            </div>
+            <div class="horario">
+                <app-contador-card [numero]="horas" rotulo="Horas"></app-contador-card>
+                <app-contador-card [numero]="minutos" rotulo="Minutos"></app-contador-card>
+                <app-contador-card [numero]="segundos" rotulo="Segundos"></app-contador-card>
+            </div>
         </div>
     </div>
-    <a class="link-contagem" routerLink="/contagem-regressiva">Ir para contagem regressiva</a>
+
+    <div class="tempo-namoro-actions">
+        <button routerLink="/contagem-regressiva">Contagem Regressiva</button>
+        <button routerLink="/linha-temporal">Linha do Tempo</button>
+    </div>
 </div>

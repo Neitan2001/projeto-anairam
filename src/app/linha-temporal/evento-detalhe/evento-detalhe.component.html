@@ -1,0 +1,19 @@
+<div class="event-detail-container">
+    <div class="event-detail-header">
+        <div class="event-detail-title">
+            <h3 class="detail-label">{{ event.label }}</h3>
+            <span class="detail-date">{{ event.date | date:'dd/MM/yyyy':'UTC' }}</span>
+        </div>
+        <button class="btn-close" (click)="onClose()">✕</button>
+    </div>
+    <div class="event-detail-body">
+        <div class="detail-text">
+            <p>{{ event.description }}</p>
+        </div>
+        <div class="detail-image">
+            <div *ngIf="imageLoading" class="image-loading-spinner"></div>
+            <img [src]="event.imageUrl" alt="{{ event.label }}" (load)="onImageLoad()"
+                [style.display]="imageLoading ? 'none' : 'block'" />
+        </div>
+    </div>
+</div>

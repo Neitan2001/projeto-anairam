@@ -1,0 +1,19 @@
+<div class="marker-wrapper">
+  <ng-container *ngIf="position === 'top'">
+    <div class="text-group">
+      <div class="marker-date">{{ date | date:'dd/MM/yyyy':'UTC' }}</div>
+      <div class="marker-label">{{ label }}</div>
+    </div>
+    <div class="dash-line"></div>
+  </ng-container>
+
+  <div class="marker" [class.highlight]="highlight"></div>
+
+  <ng-container *ngIf="position === 'bottom'">
+    <div class="dash-line"></div>
+    <div class="text-group">
+      <div class="marker-date">{{ date | date:'dd/MM/yyyy':'UTC' }}</div>
+      <div class="marker-label">{{ label }}</div>
+    </div>
+  </ng-container>
+</div>
